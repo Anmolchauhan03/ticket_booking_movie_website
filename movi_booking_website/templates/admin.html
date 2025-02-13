@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .movie-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .movie-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .movie-card h5 {
+            margin-top: 15px;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .movie-card p {
+            margin: 10px 0;
+        }
+        .movie-card .btn-danger {
+            background-color: #dc3545;
+        }
+        .movie-card .btn-danger:hover {
+            background-color: #c82333;
+        }
+        .form-group input {
+            border-radius: 5px;
+        }
+        .form-group button {
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Admin Dashboard</h2>
+        <hr>
+
+        <!-- Add New Movie Form -->
+        <h4>Add a New Movie</h4>
+        <form action="/add_movie" method="POST" onsubmit="return validateForm()">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Movie Name</label>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Movie Name" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="cinema">Cinema Hall</label>
+                        <input type="text" name="cinema" class="form-control" id="cinema" placeholder="Cinema Hall" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="timing">Show Timing</label>
+                        <input type="text" name="timing" class="form-control" id="timing" placeholder="Show Time" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" name="price" class="form-control" id="price" placeholder="Price" required>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Movie</button>
+        </form>
+
+        <hr>
+
+        <!-- Movie List -->
+        <h4>Movie List</h4>
+        {% for movie in movies %}
+        <div class="movie-card">
+            <h5>{{ movie.title }}</h5>
+            <p>Cinema: {{ movie.cinema }} | Timing: {{ movie.timing }} | Price: {{ movie.price }}</p>
+            <a href="#" class="btn btn-danger" onclick="confirmDelete({{ movie.id }})">
+                <i class="fa fa-trash"></i> Delete Movie
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        // Validate the movie price to ensure it's a number
+        function validateForm() {
+            var price = document.getElementById('price').value;
+            if (isNaN(price) || price <= 0) {
+                alert('Please enter a valid price.');
+                return false;
+            }
+            return true;
+        }
+
+        // Confirm before deleting a movie
+        function confirmDelete(movieId) {
+            if (confirm('Are you sure you want to delete this movie?')) {
+                window.location.href = '/delete_movie/' + movieId;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Movie Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #FF7E5F, #FEB47B);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        .intro {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+        }
+        .btn-custom {
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            background-color: #ffffff;
+            color: #FF7E5F;
+            border-radius: 30px;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-custom:hover {
+            background-color: #FF7E5F;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        footer {
+          background-color: #333;
+          color: #fff;
+          padding: 20px 0;
+          position: absolute; /* Changed to absolute for better positioning */
+          bottom: 0;
+          left: 0;
+          right: 0; /* Ensures full width */
+          width: 100%;
+          text-align: center;
+          margin-top: 20px; /* Adds some space if the content is very close */
+      }
+      
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">Movie Booking</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user_dashboard">User Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin">Admin Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center">
+        <div class="title">Welcome to Movie Booking</div>
+        <div class="intro">Your favorite movies are just a click away. Book now and enjoy the show!</div>
+        
+        <!-- Navigation Buttons -->
+        <div class="row">
+            <div class="col">
+                <a href="/user_dashboard" class="btn btn-custom btn-block">Go to User Dashboard</a>
+            </div>
+            <div class="col">
+                <a href="/admin" class="btn btn-custom btn-block">Go to Admin Dashboard</a>
+            </div>
+        </div>
+
+    
+       
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Movie Booking. All rights reserved.</p>
+        <p>Designed with &#10084; by  Anmol Chauhan</p>
+        
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
